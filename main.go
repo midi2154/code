@@ -14,6 +14,7 @@ func main() {
 	fmt.Println(fixArticles("There it was. A amazing rock. A honest man. A book."))
 	result := fixsingle("'hello world'")
 	fmt.Printf("%q\n", result)
+	fmt.Println(countword("go go lang exercise exercise"))
 }
 func capnth(word []string, n int) []string {
 	for i := len(word) - n; i < len(word); i++ {
@@ -63,4 +64,12 @@ func fixArticles(text string) string {
 
 func fixsingle(text string) string {
 	return "'" + strings.TrimSpace(strings.Trim(text, "'")) + "'"
+}
+
+func countword(word string) map[string]int {
+	m := make(map[string]int)
+	for _, i := range word {
+		m[string(i)]++
+	}
+	return m
 }
